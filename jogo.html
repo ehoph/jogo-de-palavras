@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo das Palavras</title>
+
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body {
+        background: linear-gradient(135deg, #1e3c72, #2a5298);
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    main {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .main-box {
+        background: #ffffff;
+        padding: 30px;
+        border-radius: 15px;
+        width: 400px;
+        text-align: center;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    }
+
+    .title-tips h1 {
+        margin-bottom: 10px;
+        color: #1e3c72;
+    }
+
+    .title-tips p {
+        margin-bottom: 20px;
+        color: #555;
+    }
+
+    .tips-box {
+        text-align: left;
+        margin-bottom: 20px;
+    }
+
+    .tip {
+        background: #f4f4f4;
+        padding: 10px;
+        border-radius: 8px;
+        margin-bottom: 10px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .tip h1 {
+        font-size: 16px;
+        color: #2a5298;
+        margin-bottom: 5px;
+    }
+
+    .tip p {
+        font-size: 14px;
+        color: #333;
+    }
+
+    .button-father {
+        margin-top: 20px;
+    }
+
+    button {
+        background: #2a5298;
+        color: white;
+        border: none;
+        padding: 12px 20px;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 16px;
+        transition: 0.3s;
+    }
+
+    button:hover {
+        background: #1e3c72;
+        transform: scale(1.05);
+    }
+</style>
+
+</head>
+<body>
+    <main>
+        <div class="main-box">
+            <div class="title-tips">
+                <h1>Jogo das Palavras </h1>
+                <p>Você será capaz de concluir o desafio?</p>
+            </div>
+
+            <div class="tips-box">
+                <div class="tip">
+                    <i></i><h1>Dica 1:</h1>
+                    <p class="dica"></p>
+                </div>
+
+                <div class="tip">
+                    <i></i><h1>Dica 2:</h1>
+                     <p class="dica"></p>
+                </div>
+
+                <div class="tip">
+                    <i></i><h1>Dica 3:</h1>
+                     <p class="dica"></p>
+                </div>
+
+                <div class="tip">
+                    <i></i><h1>Dica 4:</h1>
+                     <p class="dica"></p>
+                </div>
+
+                <div class="tip">
+                    <i></i><h1>Dica 5:</h1>
+                     <p class="dica"></p>
+                </div>
+            </div>
+            <div class="button-father">
+                <button onclick="quiz()">Começar agora</button>
+            </div>
+        </div>
+    </main>
+
+    <script>const dicaCont = document.querySelectorAll('.dica');
+
+const dicas =
+    ["O GOAT do Basquete",
+        "Maior Chutador da NBA",
+        "Alien da NBA",
+        "Willian da NBA",
+        "Patrocinadora de uniformes da NBA"
+    ];
+
+const palavras = [
+    "lebron james",
+    "steph curry",
+    "wembanyama",
+    "trae young",
+    "nike"
+];
+
+for (let i = 0; i < dicas.length; i++) {
+    dicaCont[i].textContent = dicas[i];
+}
+
+function quiz() {
+    let contador = 0
+    alert('Vamos começar o quiz!!!')
+
+    for (let i = 0; i < dicas.length; i++) {
+        let acertou = false;
+
+        while (!acertou) {
+            let questao = prompt(dicas[i]);   
+
+             if (questao.toLowerCase() === palavras[i].toLowerCase()) {
+                alert('Acertou!');
+                acertou = true;
+            }
+            else {
+                alert('Errou');
+                contador++;
+                if (contador >= 3) {
+                    acertou = true;
+                    contador = 0;
+                }             
+            }
+
+        }
+        
+       
+      
+    }
+
+    
+}</script>
+</body>
+</html>
